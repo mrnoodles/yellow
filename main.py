@@ -1,5 +1,6 @@
 __author__ = 'user'
 
+import sys
 import pygame
 import keyboard
 import physics
@@ -15,6 +16,13 @@ def main():
 
 
 def controller():
+
+    for event in pygame.event.get():
+
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+
     pass
 
 def model():
