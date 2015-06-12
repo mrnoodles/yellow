@@ -3,27 +3,33 @@ __author__ = 'user'
 
 import sys
 import pygame
-import constants
-import keyboard
-import physics
-import mixer
-import graphics
-import pokedex
+
+import config
 import context
-import script1
 
 def main():
+    setup()
 
+    # script1.main(state)
+
+def setup():
     pygame.init()
-
     state = context.Context()
 
-    window = pygame.display.set_mode(constants.WINDOW_DIMENSIONS)
+    window = pygame.display.set_mode(config.WINDOW_DIMENSIONS)
     state.window = window
 
-    script1.main(state)
+def game_loop():
+    sys_clock = pygame.time.Clock()
+    while True:
+        handle_events()
+        sys_clock.tick(config.FPS)
 
-
+def handle_events():
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@ __author__ = 'andres'
 
 import pygame
 import sys
-import constants
+import config
 
 def controller(state):
 
@@ -28,5 +28,5 @@ def main(state):
         model(state)
         view(state)
 
-        constants.CLOCK.tick(constants.FPS)
+        config.CLOCK.tick(config.FPS)
 
