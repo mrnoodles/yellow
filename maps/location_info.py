@@ -22,21 +22,61 @@ PEWTER_CITY = {
     "TYPE": "OVERWORLD"
 }
 
-CERULEAN_CITY = {}
+CERULEAN_CITY = {
+    "SONG": 18,
+    "NAME": "CERULEAN_CITY",
+    "EXITS": ["Route 4", "Route 5", "Route 9", "Route 24", "Unknown Dungeon"],
+    "TYPE": "OVERWORLD"
+}
 
-VERMILION_CITY = {}
+VERMILION_CITY = {
+    "SONG": 22,
+    "NAME": "VERMILION_CITY",
+    "EXITS": ["Route 6", "Route 11"],
+    "TYPE": "OVERWORLD"
+}
 
-LAVENDER_TOWN = {}
+LAVENDER_TOWN = {
+    "SONG": 30,
+    "NAME": "LAVENDER_TOWN",
+    "EXITS": ["Route 8", "Route 10", "Route 12"],
+    "TYPE": "OVERWORLD"
+}
 
-SAFFRON_CITY = {}
+SAFFRON_CITY = {
+    "SONG": 18,
+    "NAME": "SAFFRON_CITY",
+    "EXITS": ["North Saffron Gate", "South Saffron Gate", "East Saffron Gate", "Sylph Co"],
+    "TYPE": "OVERWORLD"
+}
 
-CELADON_CITY = {}
+CELADON_CITY = {
+    "SONG": 18,
+    "NAME": "CELADON_CITY",
+    "EXITS": ["Route 7", "Route 16"],
+    "TYPE": "OVERWORLD"
+}
 
-FUCHSIA_CITY = {}
+FUCHSIA_CITY = {
+    "SONG": 18,
+    "NAME": "FUCHSIA_CITY",
+    "EXITS": ["Route 18", "Route 19"],
+    "TYPE": "OVERWORLD"
+}
 
-CINNABAR_ISLAND = {}
+CINNABAR_ISLAND = {
+    "SONG": 38,
+    "NAME": "CINNABAR_ISLAND",
+    "EXITS": ["Route 20", "Route 21"],
+    "TYPE": "OVERWORLD"
+}
 
-INDIGO_PLATEAU = {}
+INDIGO_PLATEAU = {
+    "SONG": 41,
+    "NAME": "INDIGO_PLATEAU",
+    "EXITS": ["Victory Road"],
+    "TYPE": "OVERWORLD"
+}
 
 
 ROUTE_1 = {
@@ -49,7 +89,7 @@ ROUTE_1 = {
 ROUTE_2 = {
     "SONG": 5,
     "NAME": "ROUTE 2",
-    "EXITS": ["Viridian City", "Viridian Forest"],
+    "EXITS": ["Viridian City", "Viridian Forest", "Pewter City"],
     "TYPE": "OVERWORLD"
 }
 
@@ -105,7 +145,7 @@ ROUTE_9 = {
 ROUTE_10 = {
     "SONG": 17,
     "NAME": "ROUTE 10",
-    "EXITS": ["Route 9", "Rock Tunnel", "Power Plant"],
+    "EXITS": ["Route 9", "Rock Tunnel", "Power Plant", "Lavender Town"],
     "TYPE": "OVERWORLD"
 }
 
@@ -175,7 +215,7 @@ ROUTE_18 = {
 ROUTE_19 = {
     "SONG": 17,
     "NAME": "SEA ROUTE 19",
-    "EXITS": ["Fuchsia City", "ROUTE 20"],
+    "EXITS": ["Fuchsia City", "Route 20"],
     "TYPE": "OVERWORLD"
 }
 
@@ -189,7 +229,7 @@ ROUTE_20 = {
 ROUTE_21 = {
     "SONG": 17,
     "NAME": "SEA ROUTE 21",
-    "EXITS": ["Pallet Town"],
+    "EXITS": ["Pallet Town", "Cinnabar Island"],
     "TYPE": "OVERWORLD"
 }
 
@@ -226,6 +266,13 @@ SEA_COTTAGE = {
     "NAME": "SEA COTTAGE",
     "EXITS": ["Route 25"],
     "TYPE": "BUILDING"
+}
+
+VIRIDIAN_FOREST = {
+    "SONG": 11,
+    "NAME": "VIRIDIAN FOREST",
+    "EXITS": ["Route 2"],
+    "TYPE": "OVERWORLD"
 }
 
 locations = {
@@ -266,6 +313,7 @@ locations = {
     "Route 24": ROUTE_24,
     "Route 25": ROUTE_25,
     "Sea Cottage": SEA_COTTAGE,
+    "Viridian Forest": VIRIDIAN_FOREST,
     "North Digglet's Cave": None,
     "South Digglet's Cave": None,
     "Mt Moon": None,
