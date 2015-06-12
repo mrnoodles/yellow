@@ -23,6 +23,9 @@ def game_loop():
     sys_clock = pygame.time.Clock()
     while True:
         handle_events()
+        game_logic()
+        draw()
+        pygame.display.update()
         sys_clock.tick(config.FPS)
 
 def handle_events():
@@ -31,6 +34,11 @@ def handle_events():
             pygame.quit()
             sys.exit()
 
+def game_logic():
+    pass
+
+def draw():
+    pass
 
 if __name__ == "__main__":
     main()
