@@ -1,36 +1,30 @@
+
 __author__ = 'user'
 
 import sys
 import pygame
+import constants
 import keyboard
 import physics
 import mixer
 import graphics
 import pokedex
+import context
+import script1
 
 def main():
 
-    controller()
-    model()
-    view()
+    pygame.init()
+
+    state = context.Context()
+
+    window = pygame.display.set_mode(constants.WINDOW_DIMENSIONS)
+    state.window = window
+
+    script1.main(state)
 
 
-def controller():
 
-    for event in pygame.event.get():
-
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
-
-    pass
-
-def model():
-    pass
-
-def view():
-    pass
 
 if __name__ == "__main__":
-    pygame.init()
     main()

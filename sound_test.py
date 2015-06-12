@@ -2,16 +2,19 @@ __author__ = 'New'
 
 import time
 import pygame
+
+#pygame.mixer.pre_init(44100,-16,2, 1024 * 3)
 pygame.init()
-pygame.mixer.init()
-import sound.sound_bank
+from sound import sound_bank
 
-sound.sound_bank.initialize()
-
-#print sound.sound_bank.real_cries
 
 window = pygame.display.set_mode((100, 100))
 
+
+sound_bank.initialize()
+
 for cry in range(1, 151):
-    sound.sound_bank.real_cries[cry].play()
-    time.sleep(3)
+    sound_bank.real_cries[cry].play()
+
+    #pygame.time.Clock().tick(1)
+    #time.sleep(3)
