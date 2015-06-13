@@ -1,11 +1,9 @@
-
 __author__ = 'user'
 
 import sys
 import pygame
 
 import config
-from models import context
 
 
 def main():
@@ -15,10 +13,9 @@ def main():
 
 def setup():
     pygame.init()
-    state = context.Context()
+    # state = context.Context()
 
     window = pygame.display.set_mode(config.WINDOW_DIMENSIONS)
-    state.window = window
 
 def game_loop():
     sys_clock = pygame.time.Clock()
