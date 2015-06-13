@@ -323,5 +323,5 @@ locations = {
     "Seafoam Island": None,
     "Pokemon Mansion": None,
     "Pokemon Tower": None,
-    "Route 10 11 Gate": ROUTE_11_12_GATE
+    "Route 11 12 Gate": ROUTE_11_12_GATE
 }

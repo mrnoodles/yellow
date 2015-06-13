@@ -5,11 +5,12 @@ import sys
 import pygame
 
 import config
-import context
+from models import context
+
 
 def main():
     setup()
-
+    game_loop()
     # script1.main(state)
 
 def setup():
