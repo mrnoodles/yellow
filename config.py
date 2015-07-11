@@ -5,8 +5,8 @@ that are not part of the actual game's logic.
 """
 
 #  Window Configurations
-WIDTH = 1366
-HEIGHT = 768
+WIDTH = 640
+HEIGHT = 576
 WINDOW_DIMENSIONS = (WIDTH, HEIGHT)
 
 #  Game's FPS

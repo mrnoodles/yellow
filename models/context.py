@@ -1,5 +1,8 @@
 __author__ = 'New'
 
+
+
+
 class Context:
 
     def __init__(self):
@@ -7,6 +10,6 @@ class Context:
         self.trainer = None
         self.pokedex = None
         self.sequence = None
-        self.position = None
         self.options = None
+        self.navigation_registry = None
 
