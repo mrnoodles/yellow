@@ -1,5 +1,41 @@
 __author__ = 'andres'
 
+import maps
+
+class Warp:
+
+    def __init__(self, dest_location, dest_map, dest_coord):
+        self.location = dest_location
+        self.map = dest_map
+        self.pos = dest_coord
+
+
+class Location:
+
+    def __init__(self, song, name, type, warps=None, maps=1, map_data=None, landing=None):
+        self.song = song
+        self.name = name
+        self.type = type
+        self.warps = warps
+
+        if (type == "OVERWORLD"):
+            self.landing = landing
+            self.map_data = map_data
+
+        if (type == "BUILDING" or type == "DUNGEON"):
+            self.maps = maps
+            self.map_data = map_data
+
+
+
+MY_HOUSE = Location(1, "MY_HOUSE", "BUILDING",
+    warps=[
+        Warp("My House", 0, (0, 7)),
+        Warp("My House", 1, (0, 7))
+    ],
+    maps=2,
+    map_data= [maps.maps[0], maps.maps[1]]
+)
 
 PALLET_TOWN = {
     "SONG": 1,
@@ -275,7 +311,9 @@ VIRIDIAN_FOREST = {
     "TYPE": "OVERWORLD"
 }
 
+
 locations = {
+    "My House": MY_HOUSE,
     "Pallet Town": PALLET_TOWN,
     "Viridian City": VIRIDIAN_CITY,
     "Pewter City": PEWTER_CITY,

@@ -2,8 +2,8 @@ __author__ = 'user'
 
 import pygame
 pygame.init()
-import sound.sound_bank
-sound.sound_bank.initialize()
+from sound import sound_bank
+sound_bank.initialize()
 
 #Variables
 background_playback = False
@@ -27,7 +27,7 @@ BACKGROUND = pygame.mixer.find_channel()
 
 
 def play_bgm(id):
-    bgm = pygame.mixer.Sound(sound.sound_bank.bgm_filename(id))
+    bgm = pygame.mixer.Sound(sound_bank.bgm_filename(id))
     BACKGROUND.play(bgm, -1)
 
 

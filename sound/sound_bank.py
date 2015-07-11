@@ -1,5 +1,6 @@
 __author__ = 'New'
 
+import os
 import pygame
 
 pygame.init()
@@ -70,7 +71,8 @@ def cry_filename(id):
 
 
 def bgm_filename(id):
-    return "sound/bgm/" + bgm[id][:-3] + "ogg"
+    print "playing:", os.path.abspath("../sound/bgm/" + bgm[id][:-3] + "ogg")
+    return "../sound/bgm/" + bgm[id][:-3] + "ogg"
 
 
 def initialize():
