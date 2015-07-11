@@ -38,7 +38,7 @@ def setup():
     state = context.Context()
 
     where = locations.MY_HOUSE
-    state.navigation_registry = navigation_registry.Navigator(where, where.map_data[1], (3, 3))
+    state.navigation_registry = navigation_registry.Navigator(where, where.map_data[1], (3, 5))
     state.window = pygame.display.set_mode(config.WINDOW_DIMENSIONS)
 
 
