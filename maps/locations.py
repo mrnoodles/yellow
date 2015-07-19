@@ -5,6 +5,7 @@ import maps
 class Warp:
 
     def __init__(self, dest_location, dest_map, dest_coord):
+        #Warp("My House", 0, (0, 7))
         self.location = dest_location
         self.map = dest_map
         self.pos = dest_coord
