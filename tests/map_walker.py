@@ -46,6 +46,7 @@ def setup():
 
 def game_loop(state):
     sys_clock = pygame.time.Clock()
+    frame_count = 0
 
     while True:
         handle_events(state)
@@ -54,6 +55,7 @@ def game_loop(state):
 
         pygame.display.update()
         sys_clock.tick(config.FPS)
+        frame_count += 1
 
 def handle_events(state):
     for event in pygame.event.get():
