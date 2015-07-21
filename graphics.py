@@ -72,8 +72,8 @@ def update_map_layer(map, origin_position):
                 map_layer.blit(img, pos)
 
 
-def update_hero_layer(orientation, moving, frame=0, ij=0):
-    if moving:
+def update_hero_layer(orientation, controller, frame=0, ij=0):
+    if controller == "walking" or controller == "thud":
         if orientation == "UP":
             if frame%16:
                 if (-1)**ij + 1:

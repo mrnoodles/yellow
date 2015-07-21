@@ -109,6 +109,11 @@ def game_logic(state):
             state.change_controller("standing")
             state.gps.land_on_destination()
 
+    if state.controller == "thud":
+        if state.global_frame_count - state.controller_start > 15:
+            state.change_controller("standing")
+            state.gps.direction = None
+
 
 def draw(state):
     area = state.gps.map
@@ -126,15 +131,22 @@ def draw(state):
     graphics.flush_everything_else()
     #print frame
 
-    origin_pos = (48 - pos[1]*16 - direction[1]*mov*frame, 48 - pos[0]*16 - direction[0]*mov*frame)
-    print origin_pos
-    print mov
-    print frame
+    if state.controller == "walking":
+        origin_pos = (64 - pos[1]*16 - direction[1]*mov*frame, 48 - pos[0]*16 - direction[0]*mov*frame)
+    else:
+        origin_pos = (64 - pos[1]*16, 48 - pos[0]*16)
+    #print origin_pos
+    #print mov
+    #print frame
 
-    graphics.update_map_layer(area, (0,0))
-    graphics.update_hero_layer(state.gps.facing, mov, frame, pos[0] + pos[1])
+    graphics.update_map_layer(area, (16,0))
+    graphics.update_hero_layer(state.gps.facing, state.controller, frame, pos[0] + pos[1])
+
+
     graphics.soft_screen.blit(graphics.map_layer, origin_pos)
-    graphics.soft_screen.blit(graphics.hero_layer, (48, 48))
+
+
+    graphics.soft_screen.blit(graphics.hero_layer, (64, 48))
 
 
 

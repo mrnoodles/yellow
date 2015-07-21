@@ -32,9 +32,18 @@ class Navigator:
         print self.location.name, self.map.debug_name, ":\n"
 
     def land_on_destination(self):
-        landing_tile = legends.walkable_legend[self.map.walkable[self.destination[0]][self.destination[1]]]
+        type = self.map.walkable[self.destination[0]][self.destination[1]]
+        arg = type/100
+        landing_tile = legends.walkable_legend[type%100]
         self.direction = None
+
         if landing_tile == "WALKABLE":
             self.position = self.destination
             print "Landed on: ", self.destination
+
+        if landing_tile == "WARP":
+            self.warp_to(self.location.warps[arg-1])
+
+        if landing_tile == "WALL":
+            pass
 
