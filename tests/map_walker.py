@@ -35,6 +35,7 @@ def main():
 
 def setup():
     pygame.init()
+    pygame.key.set_repeat(15, 15)
     state = context.Context()
 
     where = locations.MY_HOUSE
@@ -66,18 +67,19 @@ def handle_events(state):
             pygame.quit()
             sys.exit()
 
-        keys = pygame.key.get_pressed()
+        if event.type == pygame.KEYDOWN:
+            keys = pygame.key.get_pressed()
 
 
-        if state.controller == "standing":
-            #state.gps.direction = None
+            if state.controller == "standing":
+                #state.gps.direction = None
 
-            temp_dir = joypad.movement(keys)
+                temp_dir = joypad.movement(keys)
 
-            if not (temp_dir is None):
-                if state.gps.facing == joypad.get_facing(keys):
-                    state.gps.direction = temp_dir
-                state.gps.facing = joypad.get_facing(keys)
+                if not (temp_dir is None):
+                    if state.gps.facing == joypad.get_facing(keys):
+                        state.gps.direction = temp_dir
+                    state.gps.facing = joypad.get_facing(keys)
 
 
 def game_logic(state):
