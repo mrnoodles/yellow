@@ -65,9 +65,9 @@ def cry_filename(id):
     if len(kipcrin) == 2:
         kipcrin = "0" + kipcrin
 
-    #return os.path.abspath("cries\\" + kipcrin + ".ogg")
+    #print os.path.abspath("cries\\" + kipcrin + ".ogg")
 
-    return "sound/cries/" + kipcrin + ".wav"
+    return "../sound/cries/" + kipcrin + ".wav"
 
 
 def bgm_filename(id):
