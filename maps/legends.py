@@ -89,7 +89,7 @@ def init():
         else:
             images.append(None)
 
-    for i in range(9):
+    for i in range(10):
         path = "../assets/img/npcs/overworld/me/" + player_legend[i]
 
         if os.path.isfile(path):

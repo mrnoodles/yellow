@@ -13,7 +13,7 @@ class Context:
         self.options = None
         self.gps = None
         self.controller = None
-        self.global_frame_count = None
+        self.global_frame_count = 0
         self.controller_start = 0
 
     def change_controller(self, cont):

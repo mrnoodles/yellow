@@ -68,8 +68,10 @@ def handle_events(state):
 
         keys = pygame.key.get_pressed()
 
-        state.gps.direction = None
+
         if state.controller == "standing":
+            #state.gps.direction = None
+
             temp_dir = joypad.movement(keys)
 
             if not (temp_dir is None):
@@ -101,7 +103,7 @@ def game_logic(state):
             state.change_controller("thud")
 
     if state.controller == "walking":
-        if state.global_frame_count - state.controller_start > 16:
+        if state.global_frame_count - state.controller_start > 15:
             state.change_controller("standing")
             state.gps.land_on_destination()
 
@@ -109,9 +111,32 @@ def game_logic(state):
 def draw(state):
     area = state.gps.map
     pos = state.gps.position
-    graphics.flush(state.window)
-    graphics.draw_logic_map(area.walkable, pos)
-    graphics.draw_flavor_map(area.drawable, pos)
+
+    direction = state.gps.direction
+
+    if direction is None:
+        direction = (0, 0)
+
+    mov = state.controller == "walking"
+    frame = state.global_frame_count - state.controller_start
+    frame = frame*(frame<16)
+    #state.window.fill((0,0,0))
+    graphics.flush_everything_else()
+    #print frame
+
+    origin_pos = (48 - pos[1]*16 - direction[1]*mov*frame, 48 - pos[0]*16 - direction[0]*mov*frame)
+    print origin_pos
+    print mov
+    print frame
+
+    graphics.update_map_layer(area, (0,0))
+    graphics.update_hero_layer(state.gps.facing, mov, frame, pos[0] + pos[1])
+    graphics.soft_screen.blit(graphics.map_layer, origin_pos)
+    graphics.soft_screen.blit(graphics.hero_layer, (48, 48))
+
+
+
+
     graphics.update_window(state.window)
 
 if __name__ == "__main__":

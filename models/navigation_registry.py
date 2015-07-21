@@ -33,6 +33,7 @@ class Navigator:
 
     def land_on_destination(self):
         landing_tile = legends.walkable_legend[self.map.walkable[self.destination[0]][self.destination[1]]]
+        self.direction = None
         if landing_tile == "WALKABLE":
             self.position = self.destination
             print "Landed on: ", self.destination
