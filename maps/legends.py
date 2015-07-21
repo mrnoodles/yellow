@@ -62,10 +62,25 @@ drawable_legend = {
     35: "water_tile.png"
 }
 
+player_legend = {
+    0: "back.png",
+    1: "back_1.png",
+    2: "back_2.png",
+    3: "front.png",
+    4: "front_1.png",
+    5: "front_2.png",
+    6: "left.png",
+    7: "left_1.png",
+    8: "right.png",
+    9: "right_1.png"
+}
+
+player = []
+
 images = []
 
 def init():
-    for i in range(13):
+    for i in range(35):
         path = "../assets/img/map_bits/" + drawable_legend[i]
 
         if os.path.isfile(path):
@@ -73,6 +88,15 @@ def init():
             print "loaded: " + os.path.abspath(path)
         else:
             images.append(None)
+
+    for i in range(9):
+        path = "../assets/img/npcs/overworld/me/" + player_legend[i]
+
+        if os.path.isfile(path):
+            player.append(pygame.image.load(path))
+            print "loaded: " + os.path.abspath(path)
+        else:
+            player.append(None)
 
 
 

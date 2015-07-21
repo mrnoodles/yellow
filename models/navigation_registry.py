@@ -1,6 +1,7 @@
 __author__ = 'andres'
 
 from maps import locations
+from maps import legends
 import mixer
 
 class Navigator:
@@ -10,6 +11,9 @@ class Navigator:
         self.map = map
         self.song = self.location.song
         self.position = position
+        self.direction = None
+        self.destination = None
+        self.facing = None
 
         mixer.play_bgm(self.song)
 
@@ -26,3 +30,10 @@ class Navigator:
 
     def print_where_am_i(self):
         print self.location.name, self.map.debug_name, ":\n"
+
+    def land_on_destination(self):
+        landing_tile = legends.walkable_legend[self.map.walkable[self.destination[0]][self.destination[1]]]
+        if landing_tile == "WALKABLE":
+            self.position = self.destination
+            print "Landed on: ", self.destination
+

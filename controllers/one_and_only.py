@@ -16,6 +16,13 @@ controls = {
     "RIGHT": K_RIGHT
 }
 
+mov = {
+    "UP": K_UP,
+    "DOWN": K_DOWN,
+    "LEFT": K_LEFT,
+    "RIGHT": K_RIGHT
+}
+
 system = {
     "MUTE": K_m,
     "=": K_EQUALS,
@@ -26,11 +33,11 @@ system = {
 }
 
 directions = {
-    "NONE": (0, 0),
-    "UP": (0, -1),
-    "DOWN": (0, 1),
-    "LEFT": (-1, 0),
-    "RIGHT": (1, 0),
+    "NONE": None,
+    "UP": (-1, 0),
+    "DOWN": (1, 0),
+    "LEFT": (0, -1),
+    "RIGHT": (0, 1),
     "UP_LEFT": (-1, -1),
     "UP_RIGHT": (1, -1),
     "DOWN_LEFT": (-1, 1),
@@ -94,8 +101,8 @@ def movement(keys):
     #down = keys[controls["DOWN"]]
 
     direction = directions["NONE"]
-    for d in controls:
-        if keys[controls[d]]:
+    for d in mov:
+        if keys[mov[d]]:
             direction = directions[d]
 
     """
@@ -111,3 +118,10 @@ def movement(keys):
     """
 
     return direction
+
+def get_facing(keys):
+    for f in mov:
+        if keys[mov[f]]:
+            facing = f
+
+    return facing

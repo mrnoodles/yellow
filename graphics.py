@@ -31,15 +31,24 @@ def draw_flavor_tile(tile_id, position):
             soft_screen.blit(img, position)
 
 def draw_logic_map(logic_map, player_position):
-    for row in range(len(logic_map)):
-        for column in range(len(logic_map[row])):
-            draw_logic_tile(logic_map[row][column], ((player_position[0] + column -3)*16, (player_position[1] + row - 3)*16))
+    height = len(logic_map)
+    width = len(logic_map[0])
+
+    for row in range(height):
+        for column in range(width):
+            draw_logic_tile(logic_map[row][column], (((-player_position[1] + column +3))*16, ((-player_position[0] + row +3))*16))
 
 def draw_flavor_map(flavor_map, player_position):
-    for row in range(len(flavor_map)):
-        for column in range(len(flavor_map[row])):
+    height = len(flavor_map)
+    width = len(flavor_map[0])
+
+    for row in range(height):
+        for column in range(width):
             if not (flavor_map[row][column] is None):
-                draw_flavor_tile(flavor_map[row][column], ((player_position[0] + column -3)*16, (player_position[1] + row - 3)*16))
+                draw_flavor_tile(flavor_map[row][column], (((-player_position[1] + column +3))*16, ((-player_position[0] + row +3))*16))
 
 def update_window(window):
     pygame.transform.scale(soft_screen, config.WINDOW_DIMENSIONS, window)
+
+def flush(window):
+    soft_screen.fill(COLORS["BLACK"])

@@ -38,9 +38,10 @@ def setup():
     state = context.Context()
 
     where = locations.MY_HOUSE
-    state.navigation_registry = navigation_registry.Navigator(where, where.map_data[1], (3, 3))
+    state.gps = navigation_registry.Navigator(where, where.map_data[1], (3, 3))
     state.window = pygame.display.set_mode(config.WINDOW_DIMENSIONS)
     state.change_controller("standing")
+    state.gps.facing = "DOWN"
 
 
     return state
@@ -65,22 +66,32 @@ def handle_events(state):
             pygame.quit()
             sys.exit()
 
-        state.direction = None
+        keys = pygame.key.get_pressed()
+
+        state.gps.direction = None
         if state.controller == "standing":
-            state.direction = joypad.movement(pygame.key.get_pressed())
+            temp_dir = joypad.movement(keys)
+
+            if not (temp_dir is None):
+                if state.gps.facing == joypad.get_facing(keys):
+                    state.gps.direction = temp_dir
+                state.gps.facing = joypad.get_facing(keys)
+
 
 def game_logic(state):
-    if state.controller == "standing":
-        direction = state.direction
-        pos = state.navigation_registry.position
-        state.destination = pos[0] + direction[0], pos[1] + direction[1]
+    if state.controller == "standing" and  not (state.gps.direction is None):
+        direction = state.gps.direction
+        pos = state.gps.position
+        state.gps.destination = pos[0] + direction[0], pos[1] + direction[1]
 
-        map = state.navigation_registry.map
+        map = state.gps.map
 
-        if map.contains_position(state.destination):
-            dest_type = map.walkable[state.destination[0]][state.destination[1]]
+        if map.contains_position(state.gps.destination):
+            dest_type = map.walkable[state.gps.destination[0]][state.gps.destination[1]]
             value = legends.walkable_legend[dest_type%100]
+            print value
             argument = dest_type/100
+
 
             if (value == "WALKABLE") or (value == "WARP"):
                 state.change_controller("walking")
@@ -89,11 +100,16 @@ def game_logic(state):
         else:
             state.change_controller("thud")
 
+    if state.controller == "walking":
+        if state.global_frame_count - state.controller_start > 16:
+            state.change_controller("standing")
+            state.gps.land_on_destination()
+
 
 def draw(state):
-    area = state.navigation_registry.map
-    pos = state.navigation_registry.position
-
+    area = state.gps.map
+    pos = state.gps.position
+    graphics.flush(state.window)
     graphics.draw_logic_map(area.walkable, pos)
     graphics.draw_flavor_map(area.drawable, pos)
     graphics.update_window(state.window)
