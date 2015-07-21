@@ -11,6 +11,9 @@ class Map:
         self.dimensions = dimensions
         self.debug_name = debug_name
 
+    def contains_position(self, pos):
+        return (pos[0] >= 0) and (pos[1] >= 0) and (pos[0] < self.dimensions[0]) and (pos[1] < self.dimensions[1])
+
 maps = {
     0: Map(walkables.my_house_1, drawables.my_house_1, (8, 8), "1f"),
     1: Map(walkables.my_house_2, drawables.my_house_2, (0, 0), "2f"),

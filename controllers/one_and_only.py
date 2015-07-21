@@ -85,14 +85,20 @@ def movement(keys):
     """
      Returns direction as a tuple based on arrow keys
     """
-    up = keys[controls["UP"]]
-    left = keys[controls["LEFT"]]
-    right = keys[controls["RIGHT"]]
-    down = keys[controls["DOWN"]]
+    #up = keys[controls["UP"]]
+
+    #left = keys[controls["LEFT"]]
+
+    #right = keys[controls["RIGHT"]]
+
+    #down = keys[controls["DOWN"]]
+
     direction = directions["NONE"]
     for d in controls:
         if keys[controls[d]]:
             direction = directions[d]
+
+    """
     #Diagonals
     if up and left:
         direction = directions["UP_LEFT"]
@@ -102,5 +108,6 @@ def movement(keys):
         direction = directions["DOWN_LEFT"]
     if down and right:
         direction = directions["DOWN_RIGHT"]
+    """
 
     return direction
