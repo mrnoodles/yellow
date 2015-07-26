@@ -8,11 +8,11 @@ legends.init()
 
 COLORS = {
     "BLACK": (0, 0, 0),
-    "WHITE": (255, 255, 255),
+    "WHITE": (255, 255, 255, 0),
     "PINK": (255, 127, 191)
 }
 
-hero_layer = pygame.Surface((16, 16))
+hero_layer = pygame.Surface((16, 16), flags=pygame.SRCALPHA)
 map_layer = pygame.Surface((160, 144))
 
 soft_screen = pygame.Surface((160, 144))
@@ -75,23 +75,23 @@ def update_map_layer(map, origin_position):
 def update_hero_layer(orientation, controller, frame=0, ij=0):
     if controller == "walking" or controller == "thud":
         if orientation == "UP":
-            if frame%16:
-                if (-1)**ij + 1:
+            if frame%32:
+                if frame<16:
                     hero_layer.blit(legends.player[1], (0, 0))
                 else:
                     hero_layer.blit(legends.player[2], (0, 0))
             else:
                 hero_layer.blit(legends.player[0], (0, 0))
         if orientation == "DOWN":
-            if frame%16:
-                if (-1)**ij + 1:
+            if frame%3216:
+                if frame<16:
                     hero_layer.blit(legends.player[4], (0, 0))
                 else:
                     hero_layer.blit(legends.player[5], (0, 0))
             else:
                 hero_layer.blit(legends.player[3], (0, 0))
         if orientation == "LEFT":
-            if frame%16:
+            if frame%32:
                 hero_layer.blit(legends.player[7], (0, 0))
             else:
                 hero_layer.blit(legends.player[6], (0, 0))

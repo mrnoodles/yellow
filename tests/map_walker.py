@@ -126,7 +126,7 @@ def draw(state):
 
     mov = state.controller == "walking"
     frame = state.global_frame_count - state.controller_start
-    frame = frame*(frame<16)
+    frame = frame
     #state.window.fill((0,0,0))
     graphics.flush_everything_else()
     #print frame
