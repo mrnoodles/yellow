@@ -12,7 +12,8 @@ walkable_legend = {
     20: "NPC",
     40: "WARP",
     60: "ITEM",
-    80: "INFO"
+    80: "INFO",
+    99: "EXIT"
 }
 
 walkable_draws = {
@@ -59,7 +60,12 @@ drawable_legend = {
     32: "down_left_water_border.png",
     33: "down_right_water_border.png",
     34: "up_water_border.png",
-    35: "water_tile.png"
+    35: "water_tile.png",
+    36: "house_upstairs.png",
+    37: "tall_bookshelf.png",
+    38: "table_with_flower.png",
+    39: "table_chair.png",
+    40: "2x1_rug.png"
 }
 
 player_legend = {
@@ -80,7 +86,7 @@ player = []
 images = []
 
 def init():
-    for i in range(35):
+    for i in range(41):
         path = "../assets/img/map_bits/" + drawable_legend[i]
 
         if os.path.isfile(path):

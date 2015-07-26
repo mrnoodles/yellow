@@ -31,8 +31,8 @@ class Location:
 
 MY_HOUSE = Location(1, "MY_HOUSE", "BUILDING",
     warps=[
-        Warp("My House", 0, (0, 7)),
-        Warp("My House", 1, (0, 7))
+        Warp("My House", 0, (1, 7)),
+        Warp("My House", 1, (1, 7))
     ],
     maps=2,
     map_data= [maps.maps[0], maps.maps[1]]

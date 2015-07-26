@@ -68,8 +68,9 @@ def update_map_layer(map, origin_position):
             tile_id = map.drawable[row][column]
             if tile_id != -1:
                 img = legends.images[tile_id]
-                pos = (column*16 + column_offset, row*16 + row_offset)
-                map_layer.blit(img, pos)
+                if not (img is None):
+                    pos = (column*16 + column_offset, row*16 + row_offset)
+                    map_layer.blit(img, pos)
 
 
 def update_hero_layer(orientation, controller, frame=0, ij=0):

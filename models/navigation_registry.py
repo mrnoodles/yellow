@@ -26,6 +26,7 @@ class Navigator:
     def warp_to(self, warp):
         self.location = locations.locations[warp.location]
         self.map = self.location.map_data[warp.map]
+        self.position = warp.pos
         self.change_song(self.location.song)
 
     def print_where_am_i(self):
