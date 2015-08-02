@@ -9,7 +9,7 @@ real_cries = [None]
 
 bgm = [
     "101-opening.wav",
-    "102-palette-town-theme.wav",
+    "102-palette-town-theme(edit).wav",
     "103-professor-oak.wav",
     "104-oak-research-lab.wav",
     "105-rival-appears.wav",
